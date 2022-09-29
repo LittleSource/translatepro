@@ -7,8 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    VarAppBar: typeof import('@varlet/ui')['_AppBarComponent']
+    Dsadas: typeof import("./src/components/icons/dsadas.vue")["default"]
+    IcBaselineImage: typeof import('./src/components/icons/IcBaselineImage.vue')['default']
+    IcBaselineVolumeUp: typeof import('./src/components/icons/IcBaselineVolumeUp.vue')['default']
+    IcOutlineCompareArrows: typeof import('./src/components/icons/IcOutlineCompareArrows.vue')['default']
+    IcTwotoneCopyAll: typeof import('./src/components/icons/IcTwotoneCopyAll.vue')['default']
+    Images: typeof import('./src/components/icons/images.vue')['default']
+    Sdaad: typeof import('./src/components/icons/sdaad.vue')['default']
+    VarAppBar: typeof import("@varlet/ui")["_AppBarComponent"]
     VarBottomNavigation: typeof import('@varlet/ui')['_BottomNavigationComponent']
     VarBottomNavigationItem: typeof import('@varlet/ui')['_BottomNavigationItemComponent']
     VarButton: typeof import('@varlet/ui')['_ButtonComponent']
