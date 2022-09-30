@@ -42,7 +42,7 @@
 					<var-icon name="checkbox-blank-outline" />
 				</var-button>
 			</var-space>
-			<var-button type="primary">翻译</var-button>
+			<var-button type="primary" @click="tranlateSubmit">翻译</var-button>
 		</div>
 		<!-- 翻译结果 -->
 		<div class="p-4">1111</div>
@@ -51,13 +51,19 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { tranlate } from "../api/caiyun";
 export default defineComponent({
 	setup() {
 		const inputText = ref("");
+		const tranlateSubmit = () => {
+			tranlate([inputText.value], "auto2zh").then((res) => {
+				console.log(res);
+			});
+		};
 		const clearClick = () => {
 			inputText.value = "";
 		};
-		return { inputText, clearClick };
+		return { inputText, clearClick, tranlateSubmit };
 	},
 });
 </script>

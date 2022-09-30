@@ -118,3 +118,17 @@ ipcMain.handle("open-win", (event, arg) => {
 		// childWindow.webContents.openDevTools({ mode: "undocked", activate: true })
 	}
 });
+
+// ipcMain.on("btnclick", function (event, arg) {
+// 	var data = JSON.stringify({
+// 		account: "xxx",
+// 		password: "xxxx",
+// 	});
+// 	axiosClient
+// 		.post("/api/user/userLogin", data)
+// 		.then((res) => {
+// 			console.log(res);
+// 			event.sender.send("login-task-finished", "data");
+// 		})
+// 		.catch((err) => console.log(err));
+// });
