@@ -13,6 +13,26 @@
 	"engines": {
 		"node": "^14.18.0 || >=16.0.0"
 	},
+	"build": {
+		"productName": "TranslatePro",
+		"mac": {
+			"icon": "./public/logo.ico"
+		},
+		"win": {
+			"icon": "./public/logo.ico"
+		},
+		"linux": {
+			"icon": "./public/logo.ico"
+		},
+		"nsis": {
+			"oneClick": false,
+			"perMachine": true,
+			"allowElevation": true,
+			"allowToChangeInstallationDirectory": true,
+			"createDesktopShortcut": true,
+			"createStartMenuShortcut": true
+		}
+	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^3.0.1",
 		"electron": "^20.0.2",
@@ -32,13 +52,6 @@
 			"VITE_DEV_SERVER_URL": "http://127.0.0.1:3344"
 		}
 	},
-	"keywords": [
-		"electron",
-		"rollup",
-		"vite",
-		"vue3",
-		"vue"
-	],
 	"dependencies": {
 		"@varlet/touch-emulator": "^1.27.20",
 		"@varlet/ui": "^1.27.20",
