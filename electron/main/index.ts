@@ -14,9 +14,11 @@ process.env.PUBLIC = app.isPackaged
 	? process.env.DIST
 	: join(process.env.DIST, "../public");
 
-import { app, BrowserWindow, shell, ipcMain } from "electron";
+import { app, BrowserWindow, shell, ipcMain, Menu, Tray } from "electron";
 import { release } from "os";
 import { join } from "path";
+
+let tray = null;
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith("6.1")) app.disableHardwareAcceleration();
@@ -42,7 +44,6 @@ const indexHtml = join(process.env.DIST, "index.html");
 
 async function createWindow() {
 	win = new BrowserWindow({
-		title: "Main window",
 		icon: join(process.env.PUBLIC, "favicon.ico"),
 		webPreferences: {
 			preload,
@@ -52,8 +53,9 @@ async function createWindow() {
 			nodeIntegration: true,
 			contextIsolation: false,
 		},
-		width: 400,
-		height: 600,
+		width: 380,
+		height: 500,
+		frame: false,
 	});
 
 	if (app.isPackaged) {
@@ -61,7 +63,7 @@ async function createWindow() {
 	} else {
 		win.loadURL(url);
 		// Open devTool if the app is not packaged
-		win.webContents.openDevTools();
+		//win.webContents.openDevTools();
 	}
 
 	// Test actively push message to the Electron-Renderer
@@ -79,7 +81,20 @@ async function createWindow() {
 	});
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+	createWindow();
+	tray = new Tray("/Users/yoki/Documents/icon.png");
+	tray.setToolTip("TranslatePro");
+	win.hide();
+	tray.on("click", () => {
+		if (win.isVisible()) {
+			win.hide();
+		} else {
+			win.setBounds({ x: tray.getBounds().x - 200 / 2, y: 0 });
+			win.show();
+		}
+	});
+});
 
 app.on("window-all-closed", () => {
 	win = null;
@@ -118,17 +133,3 @@ ipcMain.handle("open-win", (event, arg) => {
 		// childWindow.webContents.openDevTools({ mode: "undocked", activate: true })
 	}
 });
-
-// ipcMain.on("btnclick", function (event, arg) {
-// 	var data = JSON.stringify({
-// 		account: "xxx",
-// 		password: "xxxx",
-// 	});
-// 	axiosClient
-// 		.post("/api/user/userLogin", data)
-// 		.then((res) => {
-// 			console.log(res);
-// 			event.sender.send("login-task-finished", "data");
-// 		})
-// 		.catch((err) => console.log(err));
-// });

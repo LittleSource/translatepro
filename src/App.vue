@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Index from "@/views/index.vue";
-import History from "@/views/history.vue";
+import Index from "@/views/index/Index.vue";
+import History from "@/views/History.vue";
 const active = ref(0);
-const pageView = ref([Index, History]);
+const pageView = [Index, History];
 </script>
 <template>
 	<div>
@@ -21,5 +21,8 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #000;
+}
+:root {
+	--app-bar-height: 42px;
 }
 </style>
