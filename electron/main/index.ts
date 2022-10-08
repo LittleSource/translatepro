@@ -83,7 +83,7 @@ async function createWindow() {
 
 app.whenReady().then(() => {
 	createWindow();
-	tray = new Tray("/Users/yoki/Documents/icon.png");
+	tray = new Tray(join(process.env.PUBLIC, "icon.png"));
 	tray.setToolTip("TranslatePro");
 	win.hide();
 	tray.on("click", () => {

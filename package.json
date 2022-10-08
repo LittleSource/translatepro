@@ -55,6 +55,7 @@
 	"dependencies": {
 		"@varlet/touch-emulator": "^1.27.20",
 		"@varlet/ui": "^1.27.20",
-		"axios": "^0.27.2"
+		"axios": "^0.27.2",
+		"pinia": "^2.0.22"
 	}
 }
