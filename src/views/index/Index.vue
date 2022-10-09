@@ -62,7 +62,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { tranlate } from "@/api/caiyun";
+import { tranlate } from "@/api/google";
 import TopBar from "./TopBar.vue";
 export default defineComponent({
 	setup() {
@@ -84,6 +84,7 @@ export default defineComponent({
 				text: inputText.value.trim(),
 			})
 				.then((res) => {
+					console.log(res);
 					resultText.value = res;
 				})
 				.catch((e) => {
