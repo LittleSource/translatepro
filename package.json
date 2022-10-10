@@ -15,15 +15,10 @@
 	},
 	"build": {
 		"productName": "TranslatePro",
-		"mac": {
-			"icon": "./public/logo.ico"
-		},
-		"win": {
-			"icon": "./public/logo.ico"
-		},
-		"linux": {
-			"icon": "./public/logo.ico"
-		},
+		"files": [
+			"dist/**/*",
+			"package.json"
+		],
 		"nsis": {
 			"oneClick": false,
 			"perMachine": true,
