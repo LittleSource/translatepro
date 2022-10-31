@@ -1,20 +1,17 @@
 import axios from "axios";
 import { translationReq } from "./types";
 
-const key = "";
-
-const url = `https://translation.googleapis.com/language/translate/v2?key=${key}`;
-
-const headers = {
-	"content-type": "application/json",
-};
-
 const googleLanguageCodes = new Map([
 	["中文", "zh-CN"],
 	["英文", "en"],
 	["日文", "ja"],
 ]);
-export const tranlate = async (req: translationReq): Promise<string> => {
+export const tranlate = async (req: translationReq, key: string): Promise<string> => {
+	const url = `https://translation.googleapis.com/language/translate/v2?key=${key}`;
+
+	const headers = {
+		"content-type": "application/json",
+	};
 	const payload = {
 		key,
 		q: req.text,

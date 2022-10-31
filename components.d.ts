@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     VarBottomNavigationItem: typeof import('@varlet/ui')['_BottomNavigationItemComponent']
     VarButton: typeof import('@varlet/ui')['_ButtonComponent']
     VarCell: typeof import('@varlet/ui')['_CellComponent']
+    VarDialog: typeof import('@varlet/ui')['_DialogComponent']
     VarIcon: typeof import('@varlet/ui')['_IconComponent']
     VarInput: typeof import('@varlet/ui')['_InputComponent']
     VarList: typeof import('@varlet/ui')['_ListComponent']

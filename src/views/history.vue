@@ -7,21 +7,23 @@
 		</template>
 	</var-app-bar>
 	<var-list>
-		<var-cell :key="item" v-for="item in list">
-			列表项: {{ item }}
-		</var-cell>
+		<var-cell :key="item" v-for="item in history" :title="item.form" :border="true" :desc="item.to" />
 	</var-list>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-
+import { defineComponent } from "vue";
+import { storeToRefs } from 'pinia'
+import { useHistoryStore } from "@/store/modules/history";
 export default defineComponent({
 	setup() {
-		const list = ref<number[]>([]);
-		return { list };
+		const store = useHistoryStore()
+		const { history } = storeToRefs(store)
+		return { history };
 	},
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
