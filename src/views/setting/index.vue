@@ -12,7 +12,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { storeToRefs } from 'pinia'
 import { useSettingStore } from '@/store/modules/setting'
 export default defineComponent({
     setup() {
@@ -27,6 +26,7 @@ export default defineComponent({
                 key: "api_key",
                 val: apiKey.value,
             })
+            store.restSetting()
         }
         return { apiKey, apiKeyStatus, showApiKey, confirmApiKey }
     }

@@ -3,6 +3,10 @@ import { ref } from "vue";
 import Index from "@/views/index/Index.vue";
 import History from "@/views/History.vue";
 import Setting from "@/views/setting/index.vue";
+
+import { useSettingStore } from "@/store/modules/setting";
+useSettingStore().initSetting()
+
 const active = ref(0);
 const pageView = [Index, History, Setting];
 </script>

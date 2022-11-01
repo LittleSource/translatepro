@@ -14,10 +14,17 @@ process.env.PUBLIC = app.isPackaged
 	? process.env.DIST
 	: join(process.env.DIST, "../public");
 
-import { app, BrowserWindow, shell, ipcMain, Menu, Tray } from "electron";
+import { app, BrowserWindow, shell, ipcMain, Tray } from "electron";
 import { release } from "os";
 import { join } from "path";
-
+import Store from 'electron-store'
+const store = new Store()
+ipcMain.handle('getStorage', (_, key) => {
+	return store.get(key);
+});
+ipcMain.handle('setStorage', (_, key, val) => {
+	store.set(key, val);
+});
 let tray = null;
 
 // Disable GPU Acceleration for Windows 7
@@ -63,7 +70,7 @@ async function createWindow() {
 	} else {
 		win.loadURL(url);
 		// Open devTool if the app is not packaged
-		//win.webContents.openDevTools();
+		win.webContents.openDevTools();
 	}
 
 	// Test actively push message to the Electron-Renderer
@@ -79,6 +86,7 @@ async function createWindow() {
 		if (url.startsWith("https:")) shell.openExternal(url);
 		return { action: "deny" };
 	});
+
 }
 
 app.whenReady().then(() => {
