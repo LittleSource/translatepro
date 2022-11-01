@@ -26,7 +26,6 @@ export default defineComponent({
                 key: "api_key",
                 val: apiKey.value,
             })
-            store.restSetting()
         }
         return { apiKey, apiKeyStatus, showApiKey, confirmApiKey }
     }

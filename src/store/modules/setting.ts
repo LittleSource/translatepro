@@ -25,7 +25,9 @@ export const useSettingStore = defineStore('setting', {
         },
         async initSetting() {
             const settingStr = await ipcRenderer.invoke('getStorage', 'setting')
-            this.$state.setting = JSON.parse(settingStr)
+            if ((settingStr as string).length > 0) {
+                this.$state.setting = JSON.parse(settingStr)
+            }
         }
     }
 })
