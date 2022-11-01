@@ -37,6 +37,8 @@ jobs:
       - name: build app
         run: |
           npm run build
+        env:
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       # step5: cleanup artifacts in build
       - name: cleanup artifacts for windows
