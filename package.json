@@ -33,7 +33,7 @@
 		"electron": "^21.0.1",
 		"electron-builder": "^23.3.3",
 		"typescript": "^4.7.4",
-		"unocss": "^0.45.25",
+		"unocss": "^0.47.4",
 		"unplugin-vue-components": "^0.22.7",
 		"vite": "^3.0.8",
 		"vite-plugin-electron": "^0.9.3",
